@@ -16,7 +16,7 @@ before_build:
 test: off
 build_script:
 - dotnet -d build -c %CONFIGURATION%
-- dotnet test /p:Version=%APPVEYOR_BUILD_VERSION% test/EMS.DataAccess.EntityFrameworkCore.Tests/EMS.DataAccess.EntityFrameworkCore.Tests.csproj
+- dotnet test /p:Version=%APPVEYOR_BUILD_VERSION% test/EMS.DataAccess.EntityFrameworkCore.Tests/EMS.DataAccess.EntityFrameworkCore.Tests.csproj --test-adapter-path:. --logger:Appveyor
 - dotnet -d pack -c %CONFIGURATION% /p:Version=%APPVEYOR_BUILD_VERSION%
 artifacts:
 - path: src\EMS.DataAccess.EntityFrameworkCore\bin\Release\*.nupkg
