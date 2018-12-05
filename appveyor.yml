@@ -17,7 +17,7 @@ build_script:
 - dotnet -d pack -c %CONFIGURATION% /p:Version=%APPVEYOR_BUILD_VERSION%
 test:
   assemblies:
-    - '**\*.Tests.dll'
+    - 'test\**\*.Tests.dll'
 artifacts:
 - path: src\EMS.DataAccess.EntityFrameworkCore\bin\Release\*.nupkg
 
