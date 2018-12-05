@@ -12,6 +12,12 @@ before_build:
 - cmd: dotnet --version
 - nuget sources add -name Shared -source https://ci.appveyor.com/nuget/ems-shared-ddrf9y0xta28
 - appveyor-retry dotnet restore -v Minimal
+test_script:
+- dotnet test --test-adapter-path:. --logger:Appveyor
+tests:
+  assemblies:
+    only:
+      - '**\*.Tests.dll'
 build_script:
 - dotnet -d build -c %CONFIGURATION%
 - dotnet -d pack -c %CONFIGURATION% /p:Version=%APPVEYOR_BUILD_VERSION%
