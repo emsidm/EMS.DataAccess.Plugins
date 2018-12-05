@@ -14,7 +14,7 @@ before_build:
 - appveyor-retry dotnet restore -v Minimal
 test_script:
 - dotnet test --test-adapter-path:. --logger:Appveyor
-tests:
+test:
   assemblies:
     only:
       - '**\*.Tests.dll'
