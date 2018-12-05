@@ -14,9 +14,10 @@ before_build:
 - appveyor-retry dotnet restore -v Minimal
 build_script:
 - dotnet -d build -c %CONFIGURATION%
+- dotnet -d pack -c %CONFIGURATION% /p:Version=%APPVEYOR_BUILD_VERSION%
 test:
   assemblies:
-    - '**\*.tests.dll'
+    - '**\*.Tests.dll'
 artifacts:
 - path: src\EMS.DataAccess.EntityFrameworkCore\bin\Release\*.nupkg
 
